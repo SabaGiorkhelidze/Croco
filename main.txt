@@ -1,0 +1,36 @@
+ansible/
+├── ansible.cfg
+├── inventory/
+│   └── hosts
+├── playbooks/
+│   └── site.yml
+├── roles/
+│   ├── common/
+│   │   └── tasks/
+│   │       └── main.yml
+│   ├── docker/
+│   │   ├── tasks/
+│   │   │   └── main.yml
+│   │   └── templates/
+│   │       └── docker-compose.yml.j2
+│   ├── prometheus/
+│   │   ├── tasks/
+│   │   │   └── main.yml
+│   │   ├── templates/
+│   │   │   └── prometheus.yml.j2
+│   │   └── files/
+│   │       └── prometheus.service
+│   ├── grafana/
+│   │   ├── tasks/
+│   │   │   └── main.yml
+│   │   └── templates/
+│   │       └── grafana.ini.j2
+│   └── python/
+│       └── tasks/
+│           └── main.yml
+└── group_vars/
+    └── all.yml
+
+
+
+ssh-ინგი მაქვს დასამატებელი უეჭველი
