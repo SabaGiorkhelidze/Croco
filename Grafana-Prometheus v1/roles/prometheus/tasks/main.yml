@@ -1,0 +1,17 @@
+---
+- name: Create Prometheus configuration file
+  template:
+    src: prometheus.yml.j2
+    dest: /home/{{ ansible_user }}//{{ prometheus_grafana_dest }}prometheus.yml
+
+- name: set up prometheus as a service 
+  copy: 
+    src: prometheus.service
+    dest: /etc/systemd/system/prometheus.service 
+
+- name: start a prometheus service
+  systemd:
+    name: prometheus
+    state: started
+    enabled: yes
+

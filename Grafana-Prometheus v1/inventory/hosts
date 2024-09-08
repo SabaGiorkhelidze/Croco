@@ -3,4 +3,5 @@
 
 [all:vars]
 ansible_user=saba
+prometheus_grafana_dest=grafana
 ansible_python_interpreter=/usr/bin/python3

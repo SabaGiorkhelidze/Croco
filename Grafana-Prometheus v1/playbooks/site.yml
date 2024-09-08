@@ -1,5 +1,9 @@
 ---
 - hosts: all
-  tasks:
-    - name: Test connectivity to all hosts
-      ping:
+  become: yes
+  roles:
+    - role: common
+    - role: python
+    - role: docker
+    - role: prometheus
+    - role: grafana
