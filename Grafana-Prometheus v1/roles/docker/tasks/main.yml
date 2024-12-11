@@ -33,6 +33,14 @@
     state: started
     enabled: yes
 
+- name: Ensure destination directory exists
+  file:
+    path: "/home/remote/{{ prometheus_grafana_dest }}"
+    state: directory
+    owner: remote
+    group: remote
+    mode: '0755'
+
 - name: Create Docker Compose file
   template:
     src: docker-compose.yml.j2

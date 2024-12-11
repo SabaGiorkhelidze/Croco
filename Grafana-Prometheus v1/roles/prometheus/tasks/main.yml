@@ -2,16 +2,20 @@
 - name: Create Prometheus configuration file
   template:
     src: prometheus.yml.j2
-    dest: /home/{{ ansible_user }}//{{ prometheus_grafana_dest }}prometheus.yml
+    dest: /home/{{ ansible_user }}/{{ prometheus_grafana_dest }}/prometheus.yml  # Fix the double slash here
 
-- name: set up prometheus as a service 
-  copy: 
+- name: Set up Prometheus as a service
+  copy:
     src: prometheus.service
-    dest: /etc/systemd/system/prometheus.service 
+    dest: /etc/systemd/system/prometheus.service
+    mode: '0644'
 
-- name: start a prometheus service
+- name: Reload systemd to recognize the Prometheus service
+  systemd:
+    daemon_reload: yes
+
+- name: Start and enable the Prometheus service
   systemd:
     name: prometheus
     state: started
     enabled: yes
-
