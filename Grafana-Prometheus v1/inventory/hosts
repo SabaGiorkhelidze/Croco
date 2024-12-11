@@ -1,5 +1,5 @@
 [webserver]
-192.168.236.129 ansible_user=remote ansible_ssh_pass=remote123 ansible_become_pass=remote123 ansible_python_interpreter=/usr/bin/python3
+{{ ip }} ansible_user=remote ansible_ssh_pass=remote123 ansible_become_pass=remote123 ansible_python_interpreter=/usr/bin/python3
 
 [all:vars]
 ansible_user=saba
